@@ -18,13 +18,13 @@ function FoodItemLayout({
   useEffect(() => {
     const loadImages = async () => {
       const mobile = await import(
-        `../../assets/${foodItemState.image.mobile}`
+        `/assets/${foodItemState.image.mobile}`
       );
       const tablet = await import(
-        `../../assets/${foodItemState.image.tablet}`
+        `/assets/${foodItemState.image.tablet}`
       );
       const desktop = await import(
-        `../../assets/${foodItemState.image.desktop}`
+        `/assets/${foodItemState.image.desktop}`
       );
 
       setMobileImage(mobile.default);

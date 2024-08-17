@@ -1,4 +1,4 @@
-import removeIcon from "../../assets/images/icon-remove-item.svg";
+import removeIcon from "/assets/images/icon-remove-item.svg";
 import FoodItem from "../models/FoodItem";
 
 function CartItemLayout({

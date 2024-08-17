@@ -8,7 +8,7 @@ function OrderCartItemLayout({ foodItem }: { foodItem: FoodItem }) {
     useEffect(() => {
       const loadImages = async () => {
         const thumbnail = await import(
-          `../../assets/${foodItem.image.thumbnail}`
+          `/assets/${foodItem.image.thumbnail}`
         );
 
         setThumbnailImage(thumbnail.default);

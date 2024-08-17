@@ -4,9 +4,9 @@ import data from "./data/data.json";
 import FoodItemLayout from "./js/components/FoodItemLayout";
 import FoodItem from "./js/models/FoodItem";
 import CartItemLayout from "./js/components/CartItemLayout";
-import cartEmpty from "./assets/images/illustration-empty-cart.svg";
-import tree from "./assets/images/icon-carbon-neutral.svg";
-import check from "./assets/images/icon-order-confirmed.svg";
+import cartEmpty from "/assets/images/illustration-empty-cart.svg";
+import tree from "/assets/images/icon-carbon-neutral.svg";
+import check from "/assets/images/icon-order-confirmed.svg";
 import OrderCartItemLayout from "./js/components/OrderCartItemLayout";
 
 const foodItemArray: FoodItem[] = [];

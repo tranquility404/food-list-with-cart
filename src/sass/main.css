@@ -141,7 +141,7 @@ h3 {
   transform: translateY(-40%);
 }
 .food-item .btn--primary:before {
-  content: url(../assets/images/icon-add-to-cart.svg);
+  content: url(/assets/images/icon-add-to-cart.svg);
   padding-right: 0.4em;
 }
 .food-item .price:before {
