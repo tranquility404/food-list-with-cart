@@ -1,0 +1,87 @@
+.order-confirm-dialog
+    border: none
+    max-height: 92%
+    width: 100%
+    max-width: 100%
+
+    top: auto
+    border-radius: 1rem 1rem 0 0
+    padding: 2.5rem .25rem
+    overflow: hidden
+
+    @media (min-width: 990px)
+        width: 40vw
+        top: 0
+        border-radius: 1rem
+        margin: auto
+        padding: 2.5rem .25rem 1rem
+
+
+    .container
+        background: $white
+
+    .title-large
+        max-width: 5ch
+        font-size: 2.4rem
+        margin-bottom: .5rem
+
+        @media ( min-width: 600px)
+            max-width: 50ch
+
+    .sub-heading
+        color: $rose-500
+        margin-bottom: 2.5rem
+        
+    .cart-content
+        background: $rose-100
+        border-radius: 1rem
+        padding: 1rem 1.25rem
+        margin-bottom: 1.5rem
+
+        .cart-content-list
+            max-height: 35dvh
+            overflow-y: scroll
+        
+        .cart-content-list::-webkit-scrollbar
+            display: none
+
+    .cart-item *
+        margin-bottom: 0
+
+    .cart-item
+        grid-template-columns: .13fr .67fr .2fr
+        grid-template-areas: "food-img title price2" "food-img food-details price2"
+        border-bottom-color: $rose-300
+        gap: .2rem .5rem
+
+        .cart-food-img
+            grid-area: food-img
+            margin: auto 0
+            padding: .2rem
+            border-radius: .5rem
+            width: 100%
+            aspect-ratio: 1
+            
+        .cart-item-name
+            white-space: nowrap
+            overflow: hidden
+            text-overflow: ellipsis
+            max-width: 100%
+
+        .cart-food-details
+            grid-area: food-details
+            display: flex
+            gap: 1rem
+
+        .cart-item-total-price
+            margin: auto 0
+            font-weight: $font-bold
+            font-size: 1.1rem
+    
+    .cart-item:last-of-type
+        margin-bottom: 0
+        
+
+.order-confirm-dialog::backdrop
+    background: rgba(0, 0, 0, 0.75)
+        
