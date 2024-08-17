@@ -10,30 +10,7 @@ function FoodItemLayout({
   state: [FoodItem[], React.Dispatch<React.SetStateAction<FoodItem[]>>];
 }) {
   const[foodItemState, setFoodItemState] = useState<FoodItem>(foodItem);
-  const [mobileImage, setMobileImage] = useState<string>();
-  const [tabletImage, setTabletImage] = useState<string>();
-  const [desktopImage, setDesktopImage] = useState<string>();
   const [isHovered, setIsHovered] = useState([false, false]);
-
-  useEffect(() => {
-    const loadImages = async () => {
-      const mobile = await import(
-        `/assets/${foodItemState.image.mobile}`
-      );
-      const tablet = await import(
-        `/assets/${foodItemState.image.tablet}`
-      );
-      const desktop = await import(
-        `/assets/${foodItemState.image.desktop}`
-      );
-
-      setMobileImage(mobile.default);
-      setTabletImage(tablet.default);
-      setDesktopImage(desktop.default);
-    };
-
-    loadImages();
-  }, [foodItemState.image]);
 
   useEffect(() => {
     const latestFoodItem: FoodItem = state[0].find(item => item.id == foodItemState.id) as FoodItem;
@@ -125,20 +102,25 @@ function FoodItemLayout({
       }`}
     >
       <picture>
-        <source media="(min-width: 990px)" srcSet={desktopImage} />
-        <source media="(min-width: 600px)" srcSet={tabletImage} />
-        <source srcSet={mobileImage} />
-
-        <img
-          className="food-img"
-          alt={foodItemState.name}
+        <source
+          media="(min-width: 990px)"
+          srcSet={`/assets/${foodItemState.image.desktop}`}
         />
+        <source
+          media="(min-width: 600px)"
+          srcSet={`/assets/${foodItemState.image.tablet}`}
+        />
+        <source srcSet={`/assets/${foodItemState.image.mobile}`} />
+
+        <img className="food-img" alt={foodItemState.name} />
       </picture>
 
       <button
-        className={`add-to-cart btn btn--primary ${isHovered[0]? "before-hovered": ""} ${isHovered[1]? "after-hovered": ""}`}
+        className={`add-to-cart btn btn--primary ${
+          isHovered[0] ? "before-hovered" : ""
+        } ${isHovered[1] ? "after-hovered" : ""}`}
         onClick={addToCartBtnClicked}
-        onMouseMove={ handleMouseOver }
+        onMouseMove={handleMouseOver}
       >
         {foodItemState.noOfItems === 0
           ? "Add to Cart"
